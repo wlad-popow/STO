@@ -1,0 +1,12 @@
+.vs
+bin
+obj
+node_modules
+_ReSharper.Caches
+/packages
+*.user
+*.map
+Msb.Web/bower_components/*
+*.lock.json
+Msb.AnalyticalService/SamplePlans/*
+*.DotSettings
