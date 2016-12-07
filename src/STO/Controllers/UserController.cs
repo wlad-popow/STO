@@ -1,22 +1,28 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using STO.Models;
+using STO.Services;
 
 namespace STO.Controllers
 {
     public class UserController : Controller
     {
+        private IUserService _userService;
+
+        public UserController(IUserService userService)
+        {
+            _userService = userService;
+        }
+
         [HttpGet]
         public IActionResult Index()
         {
             return View("UserRegistrationView");
         }
 
-        [HttpGet]
-        public IActionResult Create()
+        [HttpPost]
+        public IActionResult Create(User model)
         {
+            _userService.Create(model);
             return RedirectToAction("Index");
         }
 

@@ -9,7 +9,7 @@ namespace STO.Services
     public interface IUserService
     {
         User Get(string id);
-        void Create(UserViewModel user);
+        void Create(User user);
         void Update(UserViewModel user);
         void Delete(string id);
     }

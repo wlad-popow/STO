@@ -1,4 +1,5 @@
-﻿using System;
+﻿using STOCore.Models;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -9,6 +10,9 @@ namespace STOCore
 {
     class CoreContext : DbContext
     {
+
+        public DbSet<User> Users { get; set; }
+
         public CoreContext()
             : this("STOEntities")
         {

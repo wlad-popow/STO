@@ -29,7 +29,7 @@ namespace STO.Services
             }
         }
 
-        public void Create(UserViewModel user)
+        public void Create(User user)
         {
             User newUser = new User()
             {

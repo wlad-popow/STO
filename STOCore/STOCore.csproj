@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{D2783CA7-3E4B-4467-B804-FC497C8270F1}</ProjectGuid>
+    <ProjectGuid>{834436FB-9EB9-4F37-9026-2877A9FABB20}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>STOCore</RootNamespace>
@@ -56,6 +56,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CoreContext.cs" />
+    <Compile Include="Migrations\201612071837286_addUser.cs" />
+    <Compile Include="Migrations\201612071837286_addUser.Designer.cs">
+      <DependentUpon>201612071837286_addUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -63,7 +69,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Models\" />
+    <EmbeddedResource Include="Migrations\201612071837286_addUser.resx">
+      <DependentUpon>201612071837286_addUser.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
