@@ -1,0 +1,9 @@
+C:\Users\Ragnareg\Documents\STO\STOInfrastructure\bin\Debug\STOInfrastructure.dll.config
+C:\Users\Ragnareg\Documents\STO\STOInfrastructure\bin\Debug\STOInfrastructure.dll
+C:\Users\Ragnareg\Documents\STO\STOInfrastructure\bin\Debug\STOInfrastructure.pdb
+C:\Users\Ragnareg\Documents\STO\STOInfrastructure\bin\Debug\EntityFramework.dll
+C:\Users\Ragnareg\Documents\STO\STOInfrastructure\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Ragnareg\Documents\STO\STOInfrastructure\bin\Debug\EntityFramework.xml
+C:\Users\Ragnareg\Documents\STO\STOInfrastructure\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Ragnareg\Documents\STO\STOInfrastructure\obj\Debug\STOInfrastructure.dll
+C:\Users\Ragnareg\Documents\STO\STOInfrastructure\obj\Debug\STOInfrastructure.pdb

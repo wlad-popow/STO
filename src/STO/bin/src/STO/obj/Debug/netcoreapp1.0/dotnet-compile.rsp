@@ -1,5 +1,5 @@
---temp-output:C:\Users\Ragnareg\Documents\Visual Studio 2015\Projects\STO\src\STO\bin\src\STO\obj\Debug\netcoreapp1.0\
---out:C:\Users\Ragnareg\Documents\Visual Studio 2015\Projects\STO\src\STO\bin\src\STO\bin\Debug\netcoreapp1.0\STO.dll
+--temp-output:C:\Users\Ragnareg\Documents\STO\src\STO\bin\src\STO\obj\Debug\netcoreapp1.0\
+--out:C:\Users\Ragnareg\Documents\STO\src\STO\bin\src\STO\bin\Debug\netcoreapp1.0\STO.dll
 --define:DEBUG
 --define:TRACE
 --define:NETCOREAPP1_0
@@ -212,12 +212,23 @@
 --reference:C:\Users\Ragnareg\.nuget\packages\System.Threading.Timer\4.0.1\ref\netstandard1.2\System.Threading.Timer.dll
 --reference:C:\Users\Ragnareg\.nuget\packages\System.Xml.ReaderWriter\4.0.11\ref\netstandard1.3\System.Xml.ReaderWriter.dll
 --reference:C:\Users\Ragnareg\.nuget\packages\System.Xml.XDocument\4.0.11\ref\netstandard1.3\System.Xml.XDocument.dll
---resource:"C:\Users\Ragnareg\Documents\Visual Studio 2015\Projects\STO\src\STO\bin\src\STO\obj\Debug\netcoreapp1.0\STOdotnet-compile.deps.json",STO.deps.json
-C:\Users\Ragnareg\Documents\Visual Studio 2015\Projects\STO\src\STO\Program.cs
-C:\Users\Ragnareg\Documents\Visual Studio 2015\Projects\STO\src\STO\Startup.cs
-C:\Users\Ragnareg\Documents\Visual Studio 2015\Projects\STO\src\STO\Controllers\HomeController.cs
-C:\Users\Ragnareg\Documents\Visual Studio 2015\Projects\STO\src\STO\Migrations\20161210080904_Initial.cs
-C:\Users\Ragnareg\Documents\Visual Studio 2015\Projects\STO\src\STO\Migrations\20161210080904_Initial.Designer.cs
-C:\Users\Ragnareg\Documents\Visual Studio 2015\Projects\STO\src\STO\Migrations\IdentityContextModelSnapshot.cs
-C:\Users\Ragnareg\Documents\Visual Studio 2015\Projects\STO\src\STO\Models\IdentityContext.cs
-C:\Users\Ragnareg\Documents\Visual Studio 2015\Projects\STO\src\STO\Models\User.cs
+--resource:"C:\Users\Ragnareg\Documents\STO\src\STO\bin\src\STO\obj\Debug\netcoreapp1.0\STOdotnet-compile.deps.json",STO.deps.json
+C:\Users\Ragnareg\Documents\STO\src\STO\Program.cs
+C:\Users\Ragnareg\Documents\STO\src\STO\Startup.cs
+C:\Users\Ragnareg\Documents\STO\src\STO\Controllers\AccountController.cs
+C:\Users\Ragnareg\Documents\STO\src\STO\Controllers\HomeController.cs
+C:\Users\Ragnareg\Documents\STO\src\STO\Controllers\UsersController.cs
+C:\Users\Ragnareg\Documents\STO\src\STO\Migrations\20161210080904_Initial.cs
+C:\Users\Ragnareg\Documents\STO\src\STO\Migrations\20161210080904_Initial.Designer.cs
+C:\Users\Ragnareg\Documents\STO\src\STO\Migrations\20161210134853_AddSTO.cs
+C:\Users\Ragnareg\Documents\STO\src\STO\Migrations\20161210134853_AddSTO.Designer.cs
+C:\Users\Ragnareg\Documents\STO\src\STO\Migrations\IdentityContextModelSnapshot.cs
+C:\Users\Ragnareg\Documents\STO\src\STO\Models\IdentityContext.cs
+C:\Users\Ragnareg\Documents\STO\src\STO\Models\STO.cs
+C:\Users\Ragnareg\Documents\STO\src\STO\Models\User.cs
+C:\Users\Ragnareg\Documents\STO\src\STO\ViewModels\ChangePasswordViewModel.cs
+C:\Users\Ragnareg\Documents\STO\src\STO\ViewModels\CreateUserViewModel.cs
+C:\Users\Ragnareg\Documents\STO\src\STO\ViewModels\EditUserViewModel.cs
+C:\Users\Ragnareg\Documents\STO\src\STO\ViewModels\LoginViewModel.cs
+C:\Users\Ragnareg\Documents\STO\src\STO\ViewModels\STORegisterViewModel.cs
+C:\Users\Ragnareg\Documents\STO\src\STO\ViewModels\UserRegisterViewModel.cs

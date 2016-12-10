@@ -32,7 +32,19 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <p>@User.Identity.Name</p>
+
+                        <form method="post" asp-controller="Account" asp-action="LogOff">
+                            <input type="submit" value="Выход" />
+                        </form>
+                    }
+                    else
+                    {
+                        <a asp-controller="Account" asp-action="Login">Вход</a>
+                        <a asp-controller="Account" asp-action="Register">Регистрация</a>
+                    }
                     <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
                 </ul>
             </div>

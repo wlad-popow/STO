@@ -99,6 +99,10 @@ namespace STO
             {
                 await roleManager.CreateAsync(new IdentityRole("user"));
             }
+            if (await roleManager.FindByNameAsync("STO") == null)
+            {
+                await roleManager.CreateAsync(new IdentityRole("STO"));
+            }
             if (await userManager.FindByNameAsync(adminEmail) == null)
             {
                 User admin = new User { Email = adminEmail, UserName = adminEmail };

@@ -26,6 +26,18 @@ namespace STO.Controllers
             return View();
         }
 
+        [HttpGet]
+        public IActionResult STORegister()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public IActionResult Register()
+        {
+            return View();
+        }
+
         [HttpPost]
         public async Task<IActionResult> UserRegister(UserRegisterViewModel model)
         {
@@ -38,6 +50,31 @@ namespace STO.Controllers
                 {
                     // установка куки
                     await _signInManager.SignInAsync(user, false);
+                    return RedirectToAction("Index", "Home");
+                }
+                else
+                {
+                    foreach (var error in result.Errors)
+                    {
+                        ModelState.AddModelError(string.Empty, error.Description);
+                    }
+                }
+            }
+            return View(model);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> STORegister(STORegisterViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                STOModel STO = new STOModel { Email = model.Email, UserName = model.Email, Name = model.Name };
+                // добавляем пользователя
+                var result = await _userManager.CreateAsync(STO, model.Password);
+                if (result.Succeeded)
+                {
+                    // установка куки
+                    await _signInManager.SignInAsync(STO, false);
                     return RedirectToAction("Index", "Home");
                 }
                 else
