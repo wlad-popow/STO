@@ -1,10 +1,15 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using STO.Services;
+using Microsoft.EntityFrameworkCore;
 using STO.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 
 namespace STO
@@ -35,8 +40,11 @@ namespace STO
             // Add framework services.
             services.AddApplicationInsightsTelemetry(Configuration);
 
-            services.AddScoped<UserManager<User>>();
-            services.AddScoped<IUserService>(p => new UserService(p.GetService(UserManager<User>())));
+            services.AddDbContext<IdentityContext>(options =>
+            options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
+            services.AddIdentity<User, IdentityRole>()
+            .AddEntityFrameworkStores<IdentityContext>();
 
             services.AddMvc();
         }
@@ -63,12 +71,43 @@ namespace STO
 
             app.UseStaticFiles();
 
+            app.UseIdentity();
+
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
+
+            DatabaseInitialize(app.ApplicationServices).Wait();
+        }
+        public async Task DatabaseInitialize(IServiceProvider serviceProvider)
+        {
+            UserManager<User> userManager =
+                serviceProvider.GetRequiredService<UserManager<User>>();
+            RoleManager<IdentityRole> roleManager =
+                serviceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+
+            string adminEmail = "admin@gmail.com";
+            string password = "_Aa123456";
+            if (await roleManager.FindByNameAsync("admin") == null)
+            {
+                await roleManager.CreateAsync(new IdentityRole("admin"));
+            }
+            if (await roleManager.FindByNameAsync("user") == null)
+            {
+                await roleManager.CreateAsync(new IdentityRole("user"));
+            }
+            if (await userManager.FindByNameAsync(adminEmail) == null)
+            {
+                User admin = new User { Email = adminEmail, UserName = adminEmail };
+                IdentityResult result = await userManager.CreateAsync(admin, password);
+                if (result.Succeeded)
+                {
+                    await userManager.AddToRoleAsync(admin, "admin");
+                }
+            }
         }
     }
 }
