@@ -222,9 +222,11 @@ C:\Users\Ragnareg\Documents\STO\src\STO\Migrations\20161210080904_Initial.cs
 C:\Users\Ragnareg\Documents\STO\src\STO\Migrations\20161210080904_Initial.Designer.cs
 C:\Users\Ragnareg\Documents\STO\src\STO\Migrations\20161210134853_AddSTO.cs
 C:\Users\Ragnareg\Documents\STO\src\STO\Migrations\20161210134853_AddSTO.Designer.cs
+C:\Users\Ragnareg\Documents\STO\src\STO\Migrations\20161211091656_STO.cs
+C:\Users\Ragnareg\Documents\STO\src\STO\Migrations\20161211091656_STO.Designer.cs
 C:\Users\Ragnareg\Documents\STO\src\STO\Migrations\IdentityContextModelSnapshot.cs
 C:\Users\Ragnareg\Documents\STO\src\STO\Models\IdentityContext.cs
-C:\Users\Ragnareg\Documents\STO\src\STO\Models\STO.cs
+C:\Users\Ragnareg\Documents\STO\src\STO\Models\STOModel.cs
 C:\Users\Ragnareg\Documents\STO\src\STO\Models\User.cs
 C:\Users\Ragnareg\Documents\STO\src\STO\ViewModels\ChangePasswordViewModel.cs
 C:\Users\Ragnareg\Documents\STO\src\STO\ViewModels\CreateUserViewModel.cs

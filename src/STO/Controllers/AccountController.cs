@@ -48,6 +48,10 @@ namespace STO.Controllers
                 var result = await _userManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
+                    await _userManager.AddToRoleAsync(user, "user");
+                }
+                if (result.Succeeded)
+                {
                     // установка куки
                     await _signInManager.SignInAsync(user, false);
                     return RedirectToAction("Index", "Home");
@@ -68,9 +72,13 @@ namespace STO.Controllers
         {
             if (ModelState.IsValid)
             {
-                STOModel STO = new STOModel { Email = model.Email, UserName = model.Email, Name = model.Name };
+                User STO = new User { Email = model.Email, UserName = model.Email,  Name = model.Name };
                 // добавляем пользователя
                 var result = await _userManager.CreateAsync(STO, model.Password);
+                if (result.Succeeded)
+                {
+                    await _userManager.AddToRoleAsync(STO, "STO");
+                }
                 if (result.Succeeded)
                 {
                     // установка куки

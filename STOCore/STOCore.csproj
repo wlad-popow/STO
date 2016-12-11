@@ -52,7 +52,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CoreContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="STOModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
