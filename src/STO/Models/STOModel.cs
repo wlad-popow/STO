@@ -16,5 +16,10 @@ namespace STO.Models
         public DateTime Close { get; set; }
         public string Description { get; set; }
         public string Contacts { get; set; }
+
+        public STOModel()
+        {
+            Id = Guid.NewGuid().ToString("N");
+        }
     }
 }

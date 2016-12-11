@@ -44,7 +44,7 @@ namespace STO
             options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddIdentity<User, IdentityRole>()
-            .AddEntityFrameworkStores<IdentityContext>();
+            .AddEntityFrameworkStores<IdentityContext>();            
 
             services.AddMvc();
         }

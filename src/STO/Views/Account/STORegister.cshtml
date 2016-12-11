@@ -1,16 +1,36 @@
 ﻿@model STO.ViewModels.STORegisterViewModel
 <h2>Регистрация нового пользователя</h2>
 <form method="post" asp-controller="Account" asp-action="STORegister">
-    <div asp-validation-summary="ModelOnly"></div>
-    <div>
-        <label asp-for="Email"></label><br />
-        <input asp-for="Email" />
-        <span asp-validation-for="Email"></span>
-    </div>
+    <div asp-validation-summary="ModelOnly"></div>    
     <div>
         <label asp-for="Name"></label><br />
         <input asp-for="Name" />
         <span asp-validation-for="Name"></span>
+    </div>
+    <div>
+        <label asp-for="Adres"></label><br />
+        <input asp-for="Adres" />
+        <span asp-validation-for="Adres"></span>
+    </div>
+    <div>
+        <label asp-for="Close"></label><br />
+        <input asp-for="Close" />
+        <span asp-validation-for="Close"></span>
+    </div>
+    <div>
+        <label asp-for="Open"></label><br />
+        <input asp-for="Open" />
+        <span asp-validation-for="Open"></span>
+    </div>
+    <div>
+        <label asp-for="Contacts"></label><br />
+        <input asp-for="Contacts" />
+        <span asp-validation-for="Contacts"></span>
+    </div>
+    <div>
+        <label asp-for="Description"></label><br />
+        <input asp-for="Description" />
+        <span asp-validation-for="Description"></span>
     </div>
     <div>
         <label asp-for="Services"></label><br />

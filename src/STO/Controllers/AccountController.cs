@@ -13,13 +13,16 @@ namespace STO.Controllers
     {
         private readonly UserManager<User> _userManager;
         private readonly SignInManager<User> _signInManager;
+        private readonly IdentityContext _context;
 
         public AccountController(
             UserManager<User> userManager,
-            SignInManager<User> signInManager)
+            SignInManager<User> signInManager,
+            IdentityContext context)
         {
             _userManager = userManager;
             _signInManager = signInManager;
+            _context = context;
         }
 
         [HttpGet]
@@ -85,6 +88,10 @@ namespace STO.Controllers
                     Contacts = model.Contacts,
                     Description = model.Description
                 };
+
+                _context.STO.Add(sto);
+                _context.SaveChanges();
+
                 // добавляем пользователя
                 var result = await _userManager.CreateAsync(userSTO, model.Password);
                 if (result.Succeeded)
