@@ -9,7 +9,7 @@ namespace STOCore
 {
     class CoreContext : DbContext
     {
-        public DbSet<STOModel> STO { get; set; }
+        public DbSet<STO> STO { get; set; }
 
         public CoreContext()
             : this("STOEntities")

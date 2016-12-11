@@ -10,5 +10,6 @@ namespace STO.Models
     {
         public string Car { get; set; }
         public string Name { get; set; }
+        public string Role { get; set; }
     }
 }

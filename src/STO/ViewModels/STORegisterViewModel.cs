@@ -9,10 +9,6 @@ namespace STO.ViewModels
     public class STORegisterViewModel
     {
         [Required]
-        [Display(Name = "Email")]
-        public string Email { get; set; }
-
-        [Required]
         [Display(Name = "Название сервиса")]
         public string Name { get; set; }
 
@@ -30,5 +26,25 @@ namespace STO.ViewModels
         [DataType(DataType.Password)]
         [Display(Name = "Подтвердить пароль")]
         public string PasswordConfirm { get; set; }
+
+        [Required]
+        [Display(Name = "Адрес")]
+        public string Adres { get; set; }
+
+        [Required]
+        [Display(Name = "Время открытия")]
+        public DateTime Open { get; set; }
+
+        [Required]
+        [Display(Name = "Время закрытия")]
+        public DateTime Close { get; set; }
+
+        [Required]
+        [Display(Name = "Описание")]
+        public string Description { get; set; }
+
+        [Required]
+        [Display(Name = "Контакты")]
+        public string Contacts { get; set; }
     }
 }

@@ -54,7 +54,8 @@
   <ItemGroup>
     <Compile Include="CoreContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="STOModel.cs" />
+    <Compile Include="STO.cs" />
+    <Compile Include="UserModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

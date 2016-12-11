@@ -14,7 +14,9 @@ namespace STO.Controllers
         private readonly UserManager<User> _userManager;
         private readonly SignInManager<User> _signInManager;
 
-        public AccountController(UserManager<User> userManager, SignInManager<User> signInManager)
+        public AccountController(
+            UserManager<User> userManager,
+            SignInManager<User> signInManager)
         {
             _userManager = userManager;
             _signInManager = signInManager;
@@ -43,7 +45,7 @@ namespace STO.Controllers
         {
             if (ModelState.IsValid)
             {
-                User user = new User { Email = model.Email, UserName = model.Email, Car = model.Gar };
+                User user = new User { Email = model.Email, UserName = model.Email, Car = model.Gar, Role = "user" };
                 // добавляем пользователя
                 var result = await _userManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
@@ -72,17 +74,27 @@ namespace STO.Controllers
         {
             if (ModelState.IsValid)
             {
-                User STO = new User { Email = model.Email, UserName = model.Email,  Name = model.Name };
+                User userSTO = new User { UserName = model.Name,  Name = model.Name, Role = "STO" };
+                STOModel sto = new STOModel()
+                {
+                    Adres = model.Adres,
+                    Close = model.Close,
+                    Name = model.Name,
+                    Open = model.Open,
+                    Services = model.Services,
+                    Contacts = model.Contacts,
+                    Description = model.Description
+                };
                 // добавляем пользователя
-                var result = await _userManager.CreateAsync(STO, model.Password);
+                var result = await _userManager.CreateAsync(userSTO, model.Password);
                 if (result.Succeeded)
                 {
-                    await _userManager.AddToRoleAsync(STO, "STO");
+                    await _userManager.AddToRoleAsync(userSTO, "STO");
                 }
                 if (result.Succeeded)
                 {
                     // установка куки
-                    await _signInManager.SignInAsync(STO, false);
+                    await _signInManager.SignInAsync(userSTO, false);
                     return RedirectToAction("Index", "Home");
                 }
                 else

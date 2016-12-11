@@ -6,12 +6,15 @@ using System.Threading.Tasks;
 
 namespace STO.Models
 {
-    public class STOModel : IdentityUser
+    public class STOModel
     {
+        public string Id { get; set; }
         public string Name { get; set; }
         public string Services { get; set; }
         public string Adres { get; set; }
         public DateTime Open { get; set; }
         public DateTime Close { get; set; }
+        public string Description { get; set; }
+        public string Contacts { get; set; }
     }
 }
