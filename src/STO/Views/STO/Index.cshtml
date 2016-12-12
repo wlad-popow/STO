@@ -1,0 +1,33 @@
+﻿@model STO.Models.STOModel
+<h2>Регистрация нового пользователя</h2>
+    <div>
+        <label asp-for="Name"></label><br />
+        @Model.Name
+    </div>
+    <div>
+        <label asp-for="Adres"></label><br />
+        @Model.Adres
+    </div>
+    <div>
+        <label asp-for="Close"></label><br />
+        @Model.Close
+    </div>
+    <div>
+        <label asp-for="Open"></label><br />
+        @Model.Open
+    </div>
+    <div>
+        <label asp-for="Contacts"></label><br />
+        @Model.Contacts
+    </div>
+    <div>
+        <label asp-for="Description"></label><br />
+        @Model.Description
+    </div>
+    <div>
+        <label asp-for="Services"></label><br />
+        @Model.Services
+    </div>
+    <div>
+        <input type="submit" value="Регистрация" />
+    </div>

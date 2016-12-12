@@ -12,22 +12,25 @@ namespace STO.Controllers
     {
         private readonly UserManager<User> _userManager;
 
-        public HomeController(UserManager<User> userManager)
+        IdentityContext _db;
+        
+        public HomeController(UserManager<User> userManager, IdentityContext db)
         {
             _userManager = userManager;
+            _db = db;
         }
 
         public IActionResult Index()
         {
-            List<User> sto = new List<User>();
-            foreach (var s in _userManager.Users)
-            {
-                if (s.Role == "STO")
-                {
-                    sto.Add(s);
-                }
-            }
-            return View(sto);
+            //List<User> sto = new List<User>();
+            //foreach (var s in _userManager.Users)
+            //{
+            //    if (s.Role == "STO")
+            //    {
+            //        sto.Add(s);
+            //    }
+            //}
+            return View(_db.STO);
         }
 
         public IActionResult About()

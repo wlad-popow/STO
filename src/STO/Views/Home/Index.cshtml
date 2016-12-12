@@ -1,16 +1,29 @@
 ﻿@{
     ViewData["Title"] = "STO";
 }
-@model IEnumerable<STO.Models.User>
+@model IEnumerable<STO.Models.STOModel>
+<form method="post" asp-controller="Home" asp-action="Index">    
+    <div>
+        <label></label><br />
+        <input asp-for="" />
+    </div>
+    <div>
+        <label></label><br />
+        <input asp-for="Services" />
+    </div>    
+    <div>
+        <input type="submit" value="Регистрация" />
+    </div>
+</form>
 <h2>Список СТО</h2>
-<table class="table">
-    @foreach (var user in Model)
-    {
-        <tr>
-            <a asp-controller="Account" asp-action="Register">@user.Name</a>  
-        </tr>
-        <tr>
-            ocenka
-        </tr>
-    }
-</table>
+    <table class="table">
+        @foreach (var user in Model)
+        {
+            <tr>
+                <a href="STO/Index/@user.Id">@user.Name</a>
+            </tr>
+            <tr>
+                ocenka
+            </tr>
+        }
+    </table>
