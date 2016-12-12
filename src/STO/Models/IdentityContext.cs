@@ -11,7 +11,9 @@ namespace STO.Models
     {
         public DbSet<STOModel> STO { get; set; }
         public DbSet<User> IdentityUser { get; set; }
+        public DbSet<Evaluation> Evaluation { get; set; }
         public DbSet<UserModel> User { get; set; }
+        public DbSet<Comment> Comment { get; set; }
         public IdentityContext(DbContextOptions<IdentityContext> options)
             : base(options)
         {

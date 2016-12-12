@@ -7,7 +7,10 @@
     @foreach (var user in Model)
     {
         <tr>
-            <td>@user.Name</td>       
+            <a asp-controller="Account" asp-action="Register">@user.Name</a>  
+        </tr>
+        <tr>
+            ocenka
         </tr>
     }
 </table>

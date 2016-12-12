@@ -218,6 +218,11 @@ C:\Users\Ragnareg\Documents\STO\src\STO\Startup.cs
 C:\Users\Ragnareg\Documents\STO\src\STO\Controllers\AccountController.cs
 C:\Users\Ragnareg\Documents\STO\src\STO\Controllers\HomeController.cs
 C:\Users\Ragnareg\Documents\STO\src\STO\Controllers\UsersController.cs
+C:\Users\Ragnareg\Documents\STO\src\STO\Migrations\20161211152554_Initial.cs
+C:\Users\Ragnareg\Documents\STO\src\STO\Migrations\20161211152554_Initial.Designer.cs
+C:\Users\Ragnareg\Documents\STO\src\STO\Migrations\20161211152750_AddUserModel.cs
+C:\Users\Ragnareg\Documents\STO\src\STO\Migrations\20161211152750_AddUserModel.Designer.cs
+C:\Users\Ragnareg\Documents\STO\src\STO\Migrations\IdentityContextModelSnapshot.cs
 C:\Users\Ragnareg\Documents\STO\src\STO\Models\IdentityContext.cs
 C:\Users\Ragnareg\Documents\STO\src\STO\Models\STOModel.cs
 C:\Users\Ragnareg\Documents\STO\src\STO\Models\User.cs

@@ -8,9 +8,10 @@ using STO.Models;
 namespace STO.Migrations
 {
     [DbContext(typeof(IdentityContext))]
-    partial class IdentityContextModelSnapshot : ModelSnapshot
+    [Migration("20161212185253_Comment")]
+    partial class Comment
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.0.0-rtm-21431")
@@ -175,21 +176,6 @@ namespace STO.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens");
-                });
-
-            modelBuilder.Entity("STO.Models.Comment", b =>
-                {
-                    b.Property<string>("Id");
-
-                    b.Property<string>("Coment");
-
-                    b.Property<string>("STOId");
-
-                    b.Property<string>("UserId");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Comment");
                 });
 
             modelBuilder.Entity("STO.Models.Evaluation", b =>
