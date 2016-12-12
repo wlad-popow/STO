@@ -3,7 +3,6 @@ using STO.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace STO.Controllers
 {
@@ -20,6 +19,28 @@ namespace STO.Controllers
         public IActionResult Index(string id)
         {
             var sto = _db.STO.FirstOrDefault(s => s.Id == id);
+            return View(sto);
+        }
+
+        [HttpPost]
+        public IActionResult List()
+        {
+            var servises = Request.Form;
+            List<STOModel> sto = new List<STOModel>();
+            foreach (var service in servises)
+            {
+                if (service.Key== "__RequestVerificationToken")
+                {
+                    continue;
+                }
+                foreach (var s in _db.STO)
+                {
+                    if (s.Services.Contains(service.Value))
+                    {
+                        sto.Add(s);
+                    }
+                }
+            }      
             return View(sto);
         }
     }
