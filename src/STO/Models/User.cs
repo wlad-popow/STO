@@ -8,7 +8,6 @@ namespace STO.Models
 {
     public class User : IdentityUser
     {
-        public string Car { get; set; }
         public string Name { get; set; }
         public string Role { get; set; }
     }

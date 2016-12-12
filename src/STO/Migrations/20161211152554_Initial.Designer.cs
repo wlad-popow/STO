@@ -8,9 +8,10 @@ using STO.Models;
 namespace STO.Migrations
 {
     [DbContext(typeof(IdentityContext))]
-    partial class IdentityContextModelSnapshot : ModelSnapshot
+    [Migration("20161211152554_Initial")]
+    partial class Initial
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.0.0-rtm-21431")
@@ -200,17 +201,6 @@ namespace STO.Migrations
                     b.ToTable("STO");
                 });
 
-            modelBuilder.Entity("STO.Models.UserModel", b =>
-                {
-                    b.Property<string>("Id");
-
-                    b.Property<string>("ModelCar");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("User");
-                });
-
             modelBuilder.Entity("STO.Models.User", b =>
                 {
                     b.HasBaseType("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityUser");
@@ -222,6 +212,17 @@ namespace STO.Migrations
                     b.ToTable("User");
 
                     b.HasDiscriminator().HasValue("User");
+                });
+
+            modelBuilder.Entity("STO.Models.UserModel", b =>
+                {
+                    b.HasBaseType("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityUser");
+
+                    b.Property<string>("ModelCar");
+
+                    b.ToTable("UserModel");
+
+                    b.HasDiscriminator().HasValue("UserModel");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityRoleClaim<string>", b =>

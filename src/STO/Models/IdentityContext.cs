@@ -10,7 +10,8 @@ namespace STO.Models
     public class IdentityContext : IdentityDbContext
     {
         public DbSet<STOModel> STO { get; set; }
-        public DbSet<User> User { get; set; }
+        public DbSet<User> IdentityUser { get; set; }
+        public DbSet<UserModel> User { get; set; }
         public IdentityContext(DbContextOptions<IdentityContext> options)
             : base(options)
         {

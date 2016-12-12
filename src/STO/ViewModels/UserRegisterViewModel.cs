@@ -14,7 +14,7 @@ namespace STO.ViewModels
 
         [Required]
         [Display(Name = "Модель автомобиля")]
-        public string Gar { get; set; }
+        public string Car { get; set; }
 
         [Required]
         [DataType(DataType.Password)]

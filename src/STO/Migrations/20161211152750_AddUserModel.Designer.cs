@@ -8,8 +8,8 @@ using STO.Models;
 namespace STO.Migrations
 {
     [DbContext(typeof(IdentityContext))]
-    [Migration("20161211144712_AddSTOContext")]
-    partial class AddSTOContext
+    [Migration("20161211152750_AddUserModel")]
+    partial class AddUserModel
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -201,11 +201,20 @@ namespace STO.Migrations
                     b.ToTable("STO");
                 });
 
+            modelBuilder.Entity("STO.Models.UserModel", b =>
+                {
+                    b.Property<string>("Id");
+
+                    b.Property<string>("ModelCar");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("User");
+                });
+
             modelBuilder.Entity("STO.Models.User", b =>
                 {
                     b.HasBaseType("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityUser");
-
-                    b.Property<string>("Car");
 
                     b.Property<string>("Name");
 

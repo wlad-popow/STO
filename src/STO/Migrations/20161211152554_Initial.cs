@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace STO.Migrations
 {
-    public partial class AddSTOContext : Migration
+    public partial class Initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -43,9 +43,9 @@ namespace STO.Migrations
                     SecurityStamp = table.Column<string>(nullable: true),
                     TwoFactorEnabled = table.Column<bool>(nullable: false),
                     UserName = table.Column<string>(maxLength: 256, nullable: true),
-                    Car = table.Column<string>(nullable: true),
                     Name = table.Column<string>(nullable: true),
-                    Role = table.Column<string>(nullable: true)
+                    Role = table.Column<string>(nullable: true),
+                    ModelCar = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {

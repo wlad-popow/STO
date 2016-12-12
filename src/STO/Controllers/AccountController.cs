@@ -48,7 +48,16 @@ namespace STO.Controllers
         {
             if (ModelState.IsValid)
             {
-                User user = new User { Email = model.Email, UserName = model.Email, Car = model.Gar, Role = "user" };
+                User user = new User { Email = model.Email, UserName = model.Email, Role = "user" };
+
+                UserModel us = new UserModel()
+                {
+                    ModelCar = model.Car
+                };
+
+                _context.User.Add(us);
+                _context.SaveChanges();
+
                 // добавляем пользователя
                 var result = await _userManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)

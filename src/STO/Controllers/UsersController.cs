@@ -29,7 +29,7 @@ namespace STO.Controllers
         {
             if (ModelState.IsValid)
             {
-                User user = new User { Email = model.Email, UserName = model.Email, Car = model.Car };
+                User user = new User { Email = model.Email, UserName = model.Email };
                 var result = await _userManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
@@ -53,7 +53,7 @@ namespace STO.Controllers
             {
                 return NotFound();
             }
-            EditUserViewModel model = new EditUserViewModel { Id = user.Id, Email = user.Email, Car = user.Car };
+            EditUserViewModel model = new EditUserViewModel { Id = user.Id, Email = user.Email};
             return View(model);
         }
 
@@ -67,7 +67,6 @@ namespace STO.Controllers
                 {
                     user.Email = model.Email;
                     user.UserName = model.Email;
-                    user.Car = model.Car;
 
                     var result = await _userManager.UpdateAsync(user);
                     if (result.Succeeded)
