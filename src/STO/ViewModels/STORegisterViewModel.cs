@@ -46,5 +46,9 @@ namespace STO.ViewModels
         [Required]
         [Display(Name = "Контакты")]
         public string Contacts { get; set; }
+
+        [Required]
+        [Display(Name = "Район")]
+        public string Rajon { get; set; }
     }
 }

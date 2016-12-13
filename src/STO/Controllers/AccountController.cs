@@ -95,7 +95,8 @@ namespace STO.Controllers
                     Open = model.Open,
                     Services = model.Services,
                     Contacts = model.Contacts,
-                    Description = model.Description
+                    Description = model.Description,
+                    Rajon = model.Rajon
                 };
 
                 _context.STO.Add(sto);
