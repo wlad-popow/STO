@@ -217,6 +217,7 @@ C:\Users\Ragnareg\Documents\STO\src\STO\Program.cs
 C:\Users\Ragnareg\Documents\STO\src\STO\Startup.cs
 C:\Users\Ragnareg\Documents\STO\src\STO\Controllers\AccountController.cs
 C:\Users\Ragnareg\Documents\STO\src\STO\Controllers\HomeController.cs
+C:\Users\Ragnareg\Documents\STO\src\STO\Controllers\STOController.cs
 C:\Users\Ragnareg\Documents\STO\src\STO\Controllers\UsersController.cs
 C:\Users\Ragnareg\Documents\STO\src\STO\Migrations\20161211152554_Initial.cs
 C:\Users\Ragnareg\Documents\STO\src\STO\Migrations\20161211152554_Initial.Designer.cs
@@ -228,6 +229,8 @@ C:\Users\Ragnareg\Documents\STO\src\STO\Migrations\20161212185253_Comment.cs
 C:\Users\Ragnareg\Documents\STO\src\STO\Migrations\20161212185253_Comment.Designer.cs
 C:\Users\Ragnareg\Documents\STO\src\STO\Migrations\20161212185409_AddComment.cs
 C:\Users\Ragnareg\Documents\STO\src\STO\Migrations\20161212185409_AddComment.Designer.cs
+C:\Users\Ragnareg\Documents\STO\src\STO\Migrations\20161213164911_AddRajon.cs
+C:\Users\Ragnareg\Documents\STO\src\STO\Migrations\20161213164911_AddRajon.Designer.cs
 C:\Users\Ragnareg\Documents\STO\src\STO\Migrations\IdentityContextModelSnapshot.cs
 C:\Users\Ragnareg\Documents\STO\src\STO\Models\Comment.cs
 C:\Users\Ragnareg\Documents\STO\src\STO\Models\Evaluation.cs
@@ -239,5 +242,6 @@ C:\Users\Ragnareg\Documents\STO\src\STO\ViewModels\ChangePasswordViewModel.cs
 C:\Users\Ragnareg\Documents\STO\src\STO\ViewModels\CreateUserViewModel.cs
 C:\Users\Ragnareg\Documents\STO\src\STO\ViewModels\EditUserViewModel.cs
 C:\Users\Ragnareg\Documents\STO\src\STO\ViewModels\LoginViewModel.cs
+C:\Users\Ragnareg\Documents\STO\src\STO\ViewModels\STOCardModel.cs
 C:\Users\Ragnareg\Documents\STO\src\STO\ViewModels\STORegisterViewModel.cs
 C:\Users\Ragnareg\Documents\STO\src\STO\ViewModels\UserRegisterViewModel.cs

@@ -22,16 +22,8 @@ namespace STO.Controllers
 
         public IActionResult Index()
         {
-            //List<User> sto = new List<User>();
-            //foreach (var s in _userManager.Users)
-            //{
-            //    if (s.Role == "STO")
-            //    {
-            //        sto.Add(s);
-            //    }
-            //}
             return View(_db.STO);
-        }
+        }        
 
         public IActionResult About()
         {

@@ -1,14 +1,13 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using STO.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace STO.Models
+namespace STO.ViewModels
 {
-    public class STOModel
+    public class STOCardModel
     {
-        public string Id { get; set; }
         public string Name { get; set; }
         public string Services { get; set; }
         public string Adres { get; set; }
@@ -16,11 +15,7 @@ namespace STO.Models
         public DateTime Close { get; set; }
         public string Description { get; set; }
         public string Contacts { get; set; }
-        public string Rajon { get; set; }
-
-        public STOModel()
-        {
-            Id = Guid.NewGuid().ToString("N");
-        }
+        public double Rating { get; set; }
+        public List<Comment> Coments{ get; set; }
     }
 }
