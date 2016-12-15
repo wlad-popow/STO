@@ -52,7 +52,10 @@ namespace STO.Controllers
 
                 UserModel us = new UserModel()
                 {
-                    ModelCar = model.Car
+                    ModelCar = model.Car,
+                    Name = model.Email,
+                    PhoneNumber = model.PhoneNumber,
+                    Id = user.Id
                 };
 
                 _context.User.Add(us);
@@ -96,7 +99,8 @@ namespace STO.Controllers
                     Services = model.Services,
                     Contacts = model.Contacts,
                     Description = model.Description,
-                    Rajon = model.Rajon
+                    Rajon = model.Rajon,
+                    Id = userSTO.Id
                 };
 
                 _context.STO.Add(sto);

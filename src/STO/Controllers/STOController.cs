@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Routing;
 using STO.Models;
 using STO.ViewModels;
 using System;
@@ -53,7 +54,8 @@ namespace STO.Controllers
                 Name = sto.Name,
                 Open = sto.Open,
                 Services = sto.Services,
-                Rating = rating
+                Rating = rating,
+                Id = sto.Id
             };
             return View(model);
         }
@@ -94,6 +96,38 @@ namespace STO.Controllers
                 }
             }      
             return View(sto);
+        }
+
+        [HttpGet]
+        public IActionResult Coments(STOCardModel stoModel)
+        {            
+            CommentViewModel model = new CommentViewModel()
+            {
+                STOId = stoModel.Id
+            };
+            return View(model);
+        }
+
+        [HttpPost]
+        public IActionResult Coments(CommentViewModel model)
+        {
+            var s = Request.HttpContext.User.Identity.Name;
+            if (s == null)
+            {
+                return RedirectToAction("Error");
+            }
+            var user = _db.User.FirstOrDefault(u => u.Name == s);
+            string stoId = Request.Path.ToString().Remove(0,13);
+            Comment coment = new Comment()
+            {
+                Coment = model.Coment,
+                STOId = stoId,
+                UserId = user.Id
+            };
+
+            _db.Comment.Add(coment);
+            _db.SaveChanges();
+            return RedirectToAction("Index",new RouteValueDictionary(new { controller = "STO", action = "Index", Id = coment.STOId }));
         }
     }
 }

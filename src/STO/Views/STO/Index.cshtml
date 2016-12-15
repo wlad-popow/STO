@@ -34,6 +34,7 @@
 </div>
 <div>
     <label asp-for="Coments"></label><br />
+    <input type="button" value="Оставить коментрарий" onclick="javascript:window.location.href='@(Url.Action("Coments", "STO", @Model))'" />
     <table class="table">
         @foreach (var coment in Model.Coments)
         {
@@ -44,5 +45,5 @@
     </table>
 </div>
 <div>
-    <input type="submit" value="Записаться" />
+    <input type="button" value="Записаться" onclick="javascript:window.location.href='@(Url.Action("Record", "STO"))'" />
 </div>

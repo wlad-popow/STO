@@ -8,6 +8,7 @@ namespace STO.ViewModels
 {
     public class STOCardModel
     {
+        public string Id { get; set; }
         public string Name { get; set; }
         public string Services { get; set; }
         public string Adres { get; set; }

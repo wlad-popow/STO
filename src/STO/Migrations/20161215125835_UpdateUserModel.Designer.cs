@@ -8,9 +8,10 @@ using STO.Models;
 namespace STO.Migrations
 {
     [DbContext(typeof(IdentityContext))]
-    partial class IdentityContextModelSnapshot : ModelSnapshot
+    [Migration("20161215125835_UpdateUserModel")]
+    partial class UpdateUserModel
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.0.0-rtm-21431")
@@ -237,8 +238,6 @@ namespace STO.Migrations
                     b.Property<string>("Id");
 
                     b.Property<string>("ModelCar");
-
-                    b.Property<string>("Name");
 
                     b.Property<string>("PhoneNumber");
 

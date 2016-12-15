@@ -13,6 +13,10 @@ namespace STO.ViewModels
         public string Email { get; set; }
 
         [Required]
+        [Display(Name = "Телефоный номер")]
+        public string PhoneNumber { get; set; }
+
+        [Required]
         [Display(Name = "Модель автомобиля")]
         public string Car { get; set; }
 

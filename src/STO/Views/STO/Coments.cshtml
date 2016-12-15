@@ -1,0 +1,12 @@
+﻿@model STO.ViewModels.CommentViewModel
+<h2>Оставление отзыва</h2>
+<form method="post" asp-controller="STO" asp-action="Coments">
+    <div>
+        <label asp-for="Coment"></label><br />
+        <input asp-for="Coment" />
+        <span asp-validation-for="Coment"></span>
+    </div> 
+    <div>
+        <input type="submit" value="Отправить"/>
+    </div>
+</form>
