@@ -129,5 +129,39 @@ namespace STO.Controllers
             _db.SaveChanges();
             return RedirectToAction("Index",new RouteValueDictionary(new { controller = "STO", action = "Index", Id = coment.STOId }));
         }
+
+        [HttpGet]
+        public IActionResult Evaluation(STOCardModel stoModel)
+        {
+            EvaluationViewMode model = new EvaluationViewMode()
+            {
+                STOId = stoModel.Id
+            };
+            return View(model);
+        }
+
+        [HttpPost]
+        public IActionResult Evaluation()
+        {
+            var servises = Request.Form;
+            var e = Int32.Parse(servises.FirstOrDefault(ev => ev.Key == "Eval").Value);
+            var s = Request.HttpContext.User.Identity.Name;
+            if (s == null)
+            {
+                return RedirectToAction("Error");
+            }
+            var user = _db.User.FirstOrDefault(u => u.Name == s);
+            string stoId = Request.Path.ToString().Remove(0, 16);
+            Evaluation eval = new Evaluation()
+            {
+                Eval = e,
+                STOId = stoId,
+                UserId = user.Id
+            };
+
+            _db.Evaluation.Add(eval);
+            _db.SaveChanges();
+            return RedirectToAction("Index", new RouteValueDictionary(new { controller = "STO", action = "Index", Id = eval.STOId }));
+        }
     }
 }
