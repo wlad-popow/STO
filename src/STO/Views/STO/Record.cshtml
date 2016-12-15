@@ -1,0 +1,20 @@
+﻿@model STO.ViewModels.RecordViewModel
+<h2>Оставление отзыва</h2>
+<form method="post" asp-controller="STO" asp-action="Record">
+    <div>
+        <label asp-for="FIO"></label><br />
+        <input asp-for="FIO" />
+        <span asp-validation-for="FIO"></span>
+
+        <label asp-for="ModelCar"></label><br />
+        <input asp-for="ModelCar" />
+        <span asp-validation-for="ModelCar"></span>
+
+        <label asp-for="PhoneNumber"></label><br />
+        <input asp-for="PhoneNumber" />
+        <span asp-validation-for="PhoneNumber"></span>
+    </div>
+    <div>
+        <input type="submit" value="Отправить" />
+    </div>
+</form>

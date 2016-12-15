@@ -235,6 +235,8 @@ C:\Users\Ragnareg\Documents\STO\src\STO\Migrations\20161215125835_UpdateUserMode
 C:\Users\Ragnareg\Documents\STO\src\STO\Migrations\20161215125835_UpdateUserModel.Designer.cs
 C:\Users\Ragnareg\Documents\STO\src\STO\Migrations\20161215132620_UpdateUser.cs
 C:\Users\Ragnareg\Documents\STO\src\STO\Migrations\20161215132620_UpdateUser.Designer.cs
+C:\Users\Ragnareg\Documents\STO\src\STO\Migrations\20161215181327_AddRecord.cs
+C:\Users\Ragnareg\Documents\STO\src\STO\Migrations\20161215181327_AddRecord.Designer.cs
 C:\Users\Ragnareg\Documents\STO\src\STO\Migrations\IdentityContextModelSnapshot.cs
 C:\Users\Ragnareg\Documents\STO\src\STO\Models\Comment.cs
 C:\Users\Ragnareg\Documents\STO\src\STO\Models\Evaluation.cs
@@ -249,6 +251,10 @@ C:\Users\Ragnareg\Documents\STO\src\STO\ViewModels\CreateUserViewModel.cs
 C:\Users\Ragnareg\Documents\STO\src\STO\ViewModels\EditUserViewModel.cs
 C:\Users\Ragnareg\Documents\STO\src\STO\ViewModels\EvaluationViewMode.cs
 C:\Users\Ragnareg\Documents\STO\src\STO\ViewModels\LoginViewModel.cs
+C:\Users\Ragnareg\Documents\STO\src\STO\ViewModels\RecordViewModel.cs
 C:\Users\Ragnareg\Documents\STO\src\STO\ViewModels\STOCardModel.cs
+C:\Users\Ragnareg\Documents\STO\src\STO\ViewModels\STOEditViewModel.cs
+C:\Users\Ragnareg\Documents\STO\src\STO\ViewModels\STORatingViewModel.cs
 C:\Users\Ragnareg\Documents\STO\src\STO\ViewModels\STORegisterViewModel.cs
+C:\Users\Ragnareg\Documents\STO\src\STO\ViewModels\UserEditViewModel.cs
 C:\Users\Ragnareg\Documents\STO\src\STO\ViewModels\UserRegisterViewModel.cs

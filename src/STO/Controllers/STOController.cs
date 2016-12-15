@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Routing;
 using STO.Models;
 using STO.ViewModels;
@@ -64,8 +65,14 @@ namespace STO.Controllers
         public IActionResult List()
         {
             var servises = Request.Form;
-            HashSet<STOModel> sto = new HashSet<STOModel>();
-            
+            HashSet<STORatingViewModel> sto = new HashSet<STORatingViewModel>();
+
+            List<Evaluation> eval = new List<Evaluation>();
+            foreach (var s in _db.Evaluation)
+            {
+                eval.Add(s);
+            }
+
             var r = servises.FirstOrDefault(s=>s.Key=="Rajon");
 
             if (servises.Count == 2)
@@ -74,7 +81,24 @@ namespace STO.Controllers
                 {
                     if (s.Rajon.Contains(r.Value))
                     {
-                        sto.Add(s);
+                        double rating = 0;
+                        int i = 0;
+                        foreach (var e in eval)
+                        {
+                            if (e.STOId == s.Id)
+                            {
+                                rating = rating + e.Eval;
+                                i++;
+                            }
+                        }
+
+                        STORatingViewModel model = new STORatingViewModel()
+                        {
+                            Id = s.Id,
+                            Name = s.Name,
+                            Raiting = rating / i
+                        };
+                        sto.Add(model);
                     }
                 }
                 return View(sto);
@@ -91,7 +115,24 @@ namespace STO.Controllers
                 {
                     if (s.Services.Contains(service.Value) && s.Rajon.Contains(r.Value))
                     {
-                        sto.Add(s);
+                        double rating = 0;
+                        int i = 0;
+                        foreach (var e in eval)
+                        {
+                            if (e.STOId == s.Id)
+                            {
+                                rating = rating + e.Eval;
+                                i++;
+                            }
+                        }
+
+                        STORatingViewModel model = new STORatingViewModel()
+                        {
+                            Id = s.Id,
+                            Name = s.Name,
+                            Raiting = rating / i
+                        };
+                        sto.Add(model);
                     }
                 }
             }      
@@ -99,6 +140,7 @@ namespace STO.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "user")]
         public IActionResult Coments(STOCardModel stoModel)
         {            
             CommentViewModel model = new CommentViewModel()
@@ -109,6 +151,7 @@ namespace STO.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "user")]
         public IActionResult Coments(CommentViewModel model)
         {
             var s = Request.HttpContext.User.Identity.Name;
@@ -131,6 +174,7 @@ namespace STO.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "user")]
         public IActionResult Evaluation(STOCardModel stoModel)
         {
             EvaluationViewMode model = new EvaluationViewMode()
@@ -141,6 +185,7 @@ namespace STO.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "user")]
         public IActionResult Evaluation()
         {
             var servises = Request.Form;
@@ -162,6 +207,47 @@ namespace STO.Controllers
             _db.Evaluation.Add(eval);
             _db.SaveChanges();
             return RedirectToAction("Index", new RouteValueDictionary(new { controller = "STO", action = "Index", Id = eval.STOId }));
+        }
+
+        [HttpGet]
+        [Authorize(Roles = "user")]
+        public IActionResult Record(STOCardModel stoModel)
+        {
+            RecordViewModel model = new RecordViewModel()
+            {
+                STOId = stoModel.Id
+            };
+            return View(model);
+        }
+
+        [HttpPost]
+        [Authorize(Roles = "user")]
+        public IActionResult Record(RecordViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var s = Request.HttpContext.User.Identity.Name;
+                if (s == null)
+                {
+                    return RedirectToAction("Error");
+                }
+                var user = _db.User.FirstOrDefault(u => u.Name == s);
+                string stoId = Request.Path.ToString().Remove(0, 12);
+                RecordModel coment = new RecordModel()
+                {
+                    FIO = model.FIO,
+                    STOId = stoId,
+                    UserId = user.Id,
+                    ModelCar = model.ModelCar,
+                    PhoneNumber = model.PhoneNumber
+                };
+
+                _db.Record.Add(coment);
+                _db.SaveChanges();
+                return RedirectToAction("Index", new RouteValueDictionary(new { controller = "STO", action = "Index", Id = coment.STOId }));
+            }
+
+            return View(model);
         }
     }
 }

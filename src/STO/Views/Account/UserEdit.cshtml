@@ -1,0 +1,23 @@
+﻿@model STO.ViewModels.UserEditViewModel
+<h2>Регистрация нового пользователя</h2>
+<form method="post" asp-controller="Account" asp-action="EditUser">
+    <div asp-validation-summary="ModelOnly"></div>
+    <div>
+        <label asp-for="Email"></label><br />
+        <input asp-for="Email" />
+        <span asp-validation-for="Email"></span>
+    </div>
+    <div>
+        <label asp-for="PhoneNumber"></label><br />
+        <input asp-for="PhoneNumber" />
+        <span asp-validation-for="PhoneNumber"></span>
+    </div>
+    <div>
+        <label asp-for="Car"></label><br />
+        <input asp-for="Car" />
+        <span asp-validation-for="Car"></span>
+    </div>
+    <div>
+        <input type="submit" value="Изменить" />
+    </div>
+</form>

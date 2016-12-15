@@ -1,8 +1,8 @@
 ﻿@{
     ViewData["Title"] = "STO";
 }
-@model IEnumerable<STO.Models.STOModel>
-<form method="post" asp-controller="Home" asp-action="Index">
+@model IEnumerable<STO.ViewModels.STORatingViewModel>
+<form method="post" asp-controller="STO" asp-action="List">
     <p><b>Услуги</b></p>
     <p>
         <input type="checkbox" name="DWS" value="ремонт ДВС">ремонт ДВС<Br>
@@ -27,8 +27,8 @@
     {
         <tr>
             <td>
-                <a href="STO/Index/@user.Id">@user.Name</a>
-                ocenka
+                <a href="../STO/Index/@user.Id">@user.Name</a>
+                @user.Raiting
             </td>
         </tr>
     }

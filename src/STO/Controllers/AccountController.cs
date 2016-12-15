@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using STO.Models;
 using STO.ViewModels;
@@ -170,6 +171,114 @@ namespace STO.Controllers
             // удаляем аутентификационные куки
             await _signInManager.SignOutAsync();
             return RedirectToAction("Index", "Home");
+        }
+        
+        [HttpGet]
+        public IActionResult Edit()
+        {
+            var user = _userManager.Users.FirstOrDefault(u=>u.UserName == Request.HttpContext.User.Identity.Name);            
+            if (user.Role == "user")
+            {
+                var context = _context.User.FirstOrDefault(u=>u.Id==user.Id);
+                UserEditViewModel model = new UserEditViewModel()
+                {
+                    Car = context.ModelCar,
+                    Email = context.Name,
+                    PhoneNumber = context.PhoneNumber
+                };
+
+                return View("UserEdit",model);
+            }
+            else
+            {
+                if (user.Role == "STOEdit")
+                {
+                    var context = _context.STO.FirstOrDefault(u => u.Id == user.Id);
+                    STOEditViewModel model = new STOEditViewModel()
+                    {
+                        Adres = context.Adres,
+                        Close = context.Close,
+                        Name = context.Name,
+                        Contacts = context.Contacts,
+                        Description = context.Description,
+                        Open = context.Open,
+                        Rajon = context.Rajon,
+                        Services = context.Services
+                    };
+                    return View("STOEdit",model);
+                }
+            }
+
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        public IActionResult EditSTO(STOEditViewModel model)
+        {
+            var user = _userManager.Users.FirstOrDefault(u => u.UserName == Request.HttpContext.User.Identity.Name);
+            var context = _context.STO.FirstOrDefault(u => u.Id == user.Id);
+            if (ModelState.IsValid)
+            {
+                if (!string.IsNullOrEmpty(model.Adres))
+                {
+                    context.Adres = model.Adres;
+                 }
+                if (!string.IsNullOrEmpty(model.Name))
+                {
+                    context.Name = model.Name;
+                    user.Name = model.Name;
+                }
+                if (!string.IsNullOrEmpty(model.Rajon))
+                {
+                    context.Rajon = model.Rajon;
+                }
+                if (!string.IsNullOrEmpty(model.Services))
+                {
+                    context.Services = model.Services;
+                }
+                if (!string.IsNullOrEmpty(model.Description))
+                {
+                    context.Description = model.Description;
+                }
+                if (!string.IsNullOrEmpty(model.Contacts))
+                {
+                    context.Contacts = model.Contacts;
+                }
+
+                _context.STO.Update(context);
+                _context.SaveChanges();                
+
+                _userManager.UpdateAsync(user);
+                
+            }
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        public IActionResult EditUser(UserEditViewModel model)
+        {
+            var user = _userManager.Users.FirstOrDefault(u => u.UserName == Request.HttpContext.User.Identity.Name);
+            var context = _context.User.FirstOrDefault(u => u.Id == user.Id);
+            if (!string.IsNullOrEmpty(model.Car))
+            {
+                context.ModelCar = model.Car;
+            }
+            if (!string.IsNullOrEmpty(model.Email))
+            {
+                context.Name = model.Email;
+                user.Name = model.Email;
+            }
+            if (!string.IsNullOrEmpty(model.PhoneNumber))
+            {
+                context.PhoneNumber = model.PhoneNumber;
+            }
+
+            _context.User.Update(context);
+            _context.SaveChanges();
+
+            _userManager.UpdateAsync(user);
+
+            return RedirectToAction("Index");
         }
     }
 }

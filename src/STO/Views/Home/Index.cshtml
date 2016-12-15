@@ -1,7 +1,7 @@
 ﻿@{
     ViewData["Title"] = "STO";
 }
-@model IEnumerable<STO.Models.STOModel>
+@model IEnumerable<STO.ViewModels.STORatingViewModel>
 <form method="post" asp-controller="STO" asp-action="List">
     <p><b>Услуги</b></p>
     <p>
@@ -28,7 +28,7 @@
         <tr>
             <td>
                 <a href="STO/Index/@user.Id">@user.Name</a>
-                ocenka
+                @user.Raiting
             </td>
         </tr>
     }
