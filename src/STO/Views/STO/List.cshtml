@@ -2,6 +2,11 @@
     ViewData["Title"] = "STO";
 }
 @model IEnumerable<STO.ViewModels.STORatingViewModel>
+<style type="text/css">
+    h2 {
+        text-align: center;
+    }
+</style>
 <form method="post" asp-controller="STO" asp-action="List">
     <p><b>Услуги</b></p>
     <p>
@@ -19,17 +24,31 @@
         <option value="Советский">Советский</option>
         <option value="Центральный">Центральный</option>
     </select>
-    <p><input type="submit" value="Подобрать"></p>
+    <p></p>
+    <p><input class="btn" type="submit" value="Подобрать"></p>
 </form>
 <h2>Список СТО</h2>
+
+<tr>
+    <td>
+        Название
+    </td>
+    <td>
+        Оценка
+    </td>
+</tr>
 <table class="table">
     @foreach (var user in Model)
-    {
+            {
+
         <tr>
             <td>
-                <a href="../STO/Index/@user.Id">@user.Name</a>
+                <a href="STO/Index/@user.Id">@user.Name</a>
+            </td>
+            <td>
                 @user.Raiting
             </td>
         </tr>
+
     }
 </table>

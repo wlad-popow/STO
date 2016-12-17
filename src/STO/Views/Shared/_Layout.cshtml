@@ -1,5 +1,14 @@
 ﻿<!DOCTYPE html>
 <html>
+<style type="text/css">
+    body {
+        background-color: #c5ffa0;
+    }
+
+    h2 {
+        text-align: center;
+    }
+</style>
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -29,25 +38,29 @@
                 </button>
                 <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">STO</a>
             </div>
-            <div class="navbar-collapse collapse">
+            <div class="navbar-default">
                 <ul class="nav navbar-nav">
                     <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
+                </ul>
                     @if (User.Identity.IsAuthenticated)
                     {
-                        <a asp-controller="Account" asp-action="Edit">@User.Identity.Name</a>
-
-                        <form method="post" asp-controller="Account" asp-action="LogOff">
-                            <input type="submit" value="Выход" />
-                        </form>
+                        <ul class="navbar-right">
+                            <form method="post" asp-controller="Account" asp-action="LogOff">
+                                <a class="btn-link" asp-controller="Account" asp-action="Edit">@User.Identity.Name</a>
+                                <input class="btn-link" type="submit" value="Выход" />
+                            </form>
+                        </ul>
                     }
                     else
                     {
-                        <a asp-controller="Account" asp-action="Login">Вход</a>
-                        <a asp-controller="Account" asp-action="Register">Регистрация</a>
+                        <ul class="navbar-right">
+                            <a class="btn-link" asp-controller="Account" asp-action="Login">Вход</a>
+                            <a class="btn-link"asp-controller="Account" asp-action="Register">Регистрация</a>
+                        </ul>
                     }
-                    <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
-                </ul>
-            </div>
+
+</div>
         </div>
     </div>
     <div class="container body-content">
