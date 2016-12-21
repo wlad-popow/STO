@@ -11,9 +11,5 @@ namespace STO.Models
         public string ModelCar { get; set; }
         public string PhoneNumber { get; set; }
         public string Name { get; set; }
-        public UserModel()
-        {
-            Id = Guid.NewGuid().ToString("N");
-        }
     }
 }

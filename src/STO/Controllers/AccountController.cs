@@ -191,7 +191,7 @@ namespace STO.Controllers
             }
             else
             {
-                if (user.Role == "STOEdit")
+                if (user.Role == "STO")
                 {
                     var context = _context.STO.FirstOrDefault(u => u.Id == user.Id);
                     STOEditViewModel model = new STOEditViewModel()
