@@ -1,23 +1,23 @@
 ﻿@model STO.ViewModels.UserEditViewModel
-<h2>Информация пользователя</h2>
+<h2  style="text-align:center">Редактирование данных</h2>
 <form method="post" asp-controller="Account" asp-action="EditUser">
     <div asp-validation-summary="ModelOnly"></div>
-    <div>
+    <div  style="text-align:center">
         <label asp-for="Email"></label><br />
         <input asp-for="Email" />
         <span asp-validation-for="Email"></span>
     </div>
-    <div>
+    <div  style="text-align:center">
         <label asp-for="PhoneNumber"></label><br />
         <input asp-for="PhoneNumber" />
         <span asp-validation-for="PhoneNumber"></span>
     </div>
-    <div>
+    <div  style="text-align:center">
         <label asp-for="Car"></label><br />
         <input asp-for="Car" />
         <span asp-validation-for="Car"></span>
-    </div>
-    <div>
-        <input type="submit" value="Изменить" />
+    </div><br />
+    <div  style="text-align:center">
+        <input class="btn" type="submit" value="Изменить" />
     </div>
 </form>

@@ -1,38 +1,38 @@
 ﻿@model STO.ViewModels.STOEditViewModel
-<h2>Информация пользователя</h2>
+<h2   style="text-align:center">Редактировать данные</h2>
 <form method="post" asp-controller="Account" asp-action="EditSTO">
     <div asp-validation-summary="ModelOnly"></div>
-    <div>
+    <div   style="text-align:center">
         <label asp-for="Name"></label><br />
         <input asp-for="Name" />
         <span asp-validation-for="Name"></span>
     </div>
-    <div>
+    <div   style="text-align:center">
         <label asp-for="Adres"></label><br />
         <input asp-for="Adres" />
         <span asp-validation-for="Adres"></span>
     </div>
-    <div>
+    <div   style="text-align:center">
         <label asp-for="Rajon"></label><br />
         <input asp-for="Rajon" />
         <span asp-validation-for="Rajon"></span>
     </div>
-    <div>
+    <div   style="text-align:center">
         <label asp-for="Contacts"></label><br />
         <input asp-for="Contacts" />
         <span asp-validation-for="Contacts"></span>
     </div>
-    <div>
+    <div   style="text-align:center">
         <label asp-for="Description"></label><br />
         <input asp-for="Description" />
         <span asp-validation-for="Description"></span>
     </div>
-    <div>
+    <div   style="text-align:center">
         <label asp-for="Services"></label><br />
         <input asp-for="Services" />
         <span asp-validation-for="Services"></span>
-    </div>
-    <div>
-        <input type="submit" value="Регистрация" />
+    </div></br>
+    <div   style="text-align:center">
+        <input class="btn" type="submit" value="Сохранить" />
     </div>
 </form>

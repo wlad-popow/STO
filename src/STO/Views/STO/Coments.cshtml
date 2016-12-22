@@ -1,12 +1,13 @@
 ﻿@model STO.ViewModels.CommentViewModel
-<h2>Оставление отзыва</h2>
+<h2 style="text-align:center">Написать комментарий</h2>
 <form method="post" asp-controller="STO" asp-action="Coments">
-    <div>
-        <label asp-for="Coment"></label><br />
-        <input asp-for="Coment" />
+    <div style="text-align:center">
+        <br />
+        <input class="input-lg" asp-for="Coment" />
         <span asp-validation-for="Coment"></span>
     </div> 
-    <div>
-        <input type="submit" value="Отправить"/>
+    </br>
+    <div style="text-align:center">
+        <input class="btn" type="submit" value="Отправить"/>
     </div>
 </form>

@@ -1,42 +1,45 @@
 ﻿@model STO.ViewModels.STOCardModel
-<h2>Регистрация нового пользователя</h2>
-<div>
-    <label asp-for="Name"></label><br />
+<h2 style="text-align:center">Информация о СТО</h2>
+<div style="text-align:center">
+    <label>Название</label><br />
     @Model.Name
 </div>
-<div>
-    <label asp-for="Adres"></label><br />
+<div style="text-align:center">
+    <label>Адрес</label><br />
     @Model.Adres
 </div>
-<div>
-    <label asp-for="Close"></label><br />
+<div style="text-align:center">
+    <label>Закрыто</label><br />
     @Model.Close
 </div>
-<div>
-    <label asp-for="Open"></label><br />
+<div style="text-align:center">
+    <label>Открыто</label><br />
     @Model.Open
 </div>
-<div>
-    <label asp-for="Contacts"></label><br />
+<div style="text-align:center">
+    <label>Контакты</label><br />
     @Model.Contacts
 </div>
-<div>
-    <label asp-for="Description"></label><br />
+<div style="text-align:center">
+    <label>Описание</label><br />
     @Model.Description
 </div>
-<div>
-    <label asp-for="Services"></label><br />
+<div style="text-align:center">
+    <label>Выполняемые работы</label><br />
     @Model.Services
-</div>
-<div>
-    <label asp-for="Rating"></label><br />
+</div></br>
+<div style="text-align:center">
+    <input class="btn" type="button" value="Записаться" onclick="javascript:window.location.href='@(Url.Action("Record", "STO", @Model))'" />
+</div></br>
+<div style="text-align:center">
+    <label>Рейтинг</label><br />
     @Model.Rating
-    <input type="button" value="Оценить" onclick="javascript:window.location.href='@(Url.Action("Evaluation", "STO", @Model))'" />
-</div>
-<div>
-    <label asp-for="Coments"></label><br />
-    <input type="button" value="Оставить коментрарий" onclick="javascript:window.location.href='@(Url.Action("Coments", "STO", @Model))'" />
-    <table class="table">
+    <input class="btn" type="button" value="Оценить" onclick="javascript:window.location.href='@(Url.Action("Evaluation", "STO", @Model))'" />
+</div></br>
+<div style="text-align:center">
+    <label>Комментарии</label><br />
+    <input class="btn" type="button" value="Оставить коментрарий" onclick="javascript:window.location.href='@(Url.Action("Coments", "STO", @Model))'" /></br></br>
+    <table class="table"></br>
         @foreach (var coment in Model.Coments)
         {
             <tr>
@@ -44,7 +47,4 @@
             </tr>
         }
     </table>
-</div>
-<div>
-    <input type="button" value="Записаться" onclick="javascript:window.location.href='@(Url.Action("Record", "STO", @Model))'" />
 </div>
