@@ -1,4 +1,5 @@
 ﻿@model STO.ViewModels.STOCardModel
+
 <h2 style="text-align:center">Информация о СТО</h2>
 <div style="text-align:center">
     <label>Название</label><br />
@@ -39,11 +40,24 @@
 <div style="text-align:center">
     <label>Комментарии</label><br />
     <input class="btn" type="button" value="Оставить коментрарий" onclick="javascript:window.location.href='@(Url.Action("Coments", "STO", @Model))'" /></br></br>
-    <table class="table"></br>
+    <table class="table">
+        <tr>
+            <td>
+                Коментарий
+            </td>
+            <td>
+                Id Пользователя
+            </td>
+        </tr>
         @foreach (var coment in Model.Coments)
         {
             <tr>
-                @coment.Coment
+                <td>
+                    @coment.Coment
+                </td>
+                <td>
+                    @coment.Id
+                </td>
             </tr>
         }
     </table>
